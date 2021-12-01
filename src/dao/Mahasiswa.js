@@ -17,7 +17,7 @@ export const findOneMahasiswaByNIM = async (NIM) => {
 export const findAllMahasiswa = async () => {
   try {
     const mahasiswa = await Mahasiswa.findAll({
-      order: [['NIM', 'ASC']]
+      order: [['nim', 'ASC']]
     })
     return mahasiswa
   } catch (error) {
@@ -30,12 +30,12 @@ export const findMahasiswaByName = async (nama) => {
     const mahasiswa = await Mahasiswa.findAll({
       where: {
         nama_mahasiswa: sequelize.where(
-          sequelize.fn('LOWER', sequelize.col('nama_mahasiswa')),
+          sequelize.fn('LOWER', sequelize.col('nama')),
           'LIKE',
           '%' + nama.toLowerCase() + '%'
         )
       },
-      order: [['nama_mahasiswa', 'ASC']]
+      order: [['nama', 'ASC']]
     })
     return mahasiswa
   } catch (error) {
@@ -48,12 +48,12 @@ export const findMahasiswaByNIM = async (NIM) => {
     const mahasiswa = await Mahasiswa.findAll({
       where: {
         NIM: sequelize.where(
-          sequelize.fn('LOWER', sequelize.col('NIM')),
+          sequelize.fn('LOWER', sequelize.col('nim')),
           'LIKE',
           '%' + NIM.toLowerCase() + '%'
         )
       },
-      order: [['NIM', 'ASC']]
+      order: [['nim', 'ASC']]
     })
     return mahasiswa
   } catch (error) {

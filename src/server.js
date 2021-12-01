@@ -9,7 +9,8 @@ import mahasiswaRouter from './routes/Mahasiswa'
 import userRouter from './routes/User'
 import kategoriNilaiRouter from './routes/Kategori_Nilai'
 import penilaianRouter from './routes/Penilaian'
-
+import kelasRouter from './routes/Kelas'
+import matkulRouter from './routes/MataKuliah'
 
 const app = express()
 app.use(cors())
@@ -23,7 +24,8 @@ app.use('/mahasiswa', mahasiswaRouter)
 app.use('/user', userRouter)
 app.use('/kategori-nilai', kategoriNilaiRouter)
 app.use('/penilaian', penilaianRouter)
-
+app.use('/kelas', kelasRouter)
+app.use('/matkul', matkulRouter)
 
 // error handling
 app.use((error, req, res, next) => {
